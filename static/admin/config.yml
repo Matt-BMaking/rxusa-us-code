@@ -9,13 +9,39 @@ media_folder: "static/img/uploads"
 public_folder: "/img/uploads"
 
 collections:
-  - name: "code"
-    label: "Code"
+  - name: "titles"
+    label: "Titles"
     folder: "docs"
     create: true
+    nested:
+      depth: 2
+      summary: "{{title}}"
     slug: "{{slug}}"
-    extension: "md"
-    format: "frontmatter"
     fields:
-      - { name: "title", label: "Title", widget: "string" }
+      - { name: "title", label: "Title (display name)", widget: "string" }
+      - { name: "body", label: "Intro text", widget: "markdown", required: false }
+
+  - name: "chapters"
+    label: "Chapters"
+    folder: "docs"
+    create: true
+    nested:
+      depth: 2
+      summary: "{{title}}"
+    slug: "chapter-{{slug}}"
+    fields:
+      - { name: "title", label: "Chapter title", widget: "string" }
       - { name: "body", label: "Body", widget: "markdown" }
+
+  - name: "sections"
+    label: "Sections"
+    folder: "docs"
+    create: true
+    nested:
+      depth: 2
+      summary: "{{title}}"
+    slug: "section-{{slug}}"
+    fields:
+      - { name: "title", label: "Section heading (e.g., § 1801. Definitions)", widget: "string" }
+      - { name: "body", label: "Text", widget: "markdown" }
+
