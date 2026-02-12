@@ -3,7 +3,7 @@ backend:
   repo: "Matt-BMaking/rxusa-us-code"
   branch: main
   base_url: "https://rxusa-us-code-auth.matthewberry0909.workers.dev"
-  auth_endpoint: "/auth?provider=github"
+  auth_endpoint: "/auth"
 
 media_folder: "static/img/uploads"
 public_folder: "/img/uploads"
